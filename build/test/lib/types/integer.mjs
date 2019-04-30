@@ -59,7 +59,7 @@ export class IntegerType {
             return createInvalidIntegerError(val);
         }
         if (val < this.min || val > this.max) {
-            return new new Error("Range");
+            return new Error("Range");
         }
         return undefined;
     }
