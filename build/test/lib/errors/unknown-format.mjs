@@ -1,7 +1,7 @@
 import { Incident } from "incident";
 export const name = "UnknownFormat";
 export function format({ format }) {
-    return `Unknown format ${JSON.stringify(format)}, supported formats: bson, json or qs`;
+    return `Unknown format ${JSON.stringify(format)}, supported formats: json or qs`;
 }
 export function createUnknownFormatError(unknownFormat) {
     return new Incident(name, { format: unknownFormat }, format);

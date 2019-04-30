@@ -21,7 +21,6 @@
   await import("./test/types/try-union.spec.mjs");
   await import("./test/types/ts-enum.spec.mjs");
   await import("./test/types/ucs2-string.spec.mjs");
-  await import("./test/types/union.spec.mjs");
   await import("./test/types/white-list.spec.mjs");
   run();
 })();

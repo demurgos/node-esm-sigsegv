@@ -1,8 +1,6 @@
-import bson from "bson";
 import { CaseStyle } from "../../lib/case-style";
 import { TsEnumType } from "../../lib/types/ts-enum";
 import { runTests } from "../helpers/test";
-const bsonSerializer = new bson.BSON();
 describe("TsEnum", function () {
     let Color;
     (function (Color) {
@@ -92,7 +90,6 @@ describe("SimpleEnum: rename KebabCase", function () {
             value: Node.Expression,
             valid: true,
             output: {
-                bson: bsonSerializer.serialize({ _: "expression" }),
                 json: "\"expression\"",
                 qs: "_=expression",
             },
@@ -102,7 +99,6 @@ describe("SimpleEnum: rename KebabCase", function () {
             value: Node.BinaryOperator,
             valid: true,
             output: {
-                bson: bsonSerializer.serialize({ _: "binary-operator" }),
                 json: "\"binary-operator\"",
                 qs: "_=binary-operator",
             },
@@ -112,7 +108,6 @@ describe("SimpleEnum: rename KebabCase", function () {
             value: Node.BlockStatement,
             valid: true,
             output: {
-                bson: bsonSerializer.serialize({ _: "block-statement" }),
                 json: "\"block-statement\"",
                 qs: "_=block-statement",
             },
@@ -122,7 +117,6 @@ describe("SimpleEnum: rename KebabCase", function () {
             value: 0,
             valid: true,
             output: {
-                bson: bsonSerializer.serialize({ _: "expression" }),
                 json: "\"expression\"",
                 qs: "_=expression",
             },
@@ -132,7 +126,6 @@ describe("SimpleEnum: rename KebabCase", function () {
             value: 1,
             valid: true,
             output: {
-                bson: bsonSerializer.serialize({ _: "binary-operator" }),
                 json: "\"binary-operator\"",
                 qs: "_=binary-operator",
             },
@@ -142,7 +135,6 @@ describe("SimpleEnum: rename KebabCase", function () {
             value: 2,
             valid: true,
             output: {
-                bson: bsonSerializer.serialize({ _: "block-statement" }),
                 json: "\"block-statement\"",
                 qs: "_=block-statement",
             },

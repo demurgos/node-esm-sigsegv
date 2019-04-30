@@ -1,4 +1,3 @@
-import bson from "bson";
 import { Incident } from "incident";
 import { createInvalidTypeError } from "../../lib/errors/invalid-type";
 import { readVisitor } from "../../lib/readers/read-visitor";
@@ -65,14 +64,12 @@ describe("Custom", function () {
             return new Complex(value.real, value.imaginary);
         },
     });
-    const bsonSerializer = new bson.BSON();
     const items = [
         {
             name: "Complex {real: 0, imaginary: 0}",
             value: new Complex(0, 0),
             valid: true,
             output: {
-                bson: bsonSerializer.serialize({ _: "0" }),
                 json: "\"0\"",
                 qs: "_=0",
             },
@@ -82,7 +79,6 @@ describe("Custom", function () {
             value: new Complex(1, 0),
             valid: true,
             output: {
-                bson: bsonSerializer.serialize({ _: "1" }),
                 json: "\"1\"",
                 qs: "_=1",
             },
@@ -92,7 +88,6 @@ describe("Custom", function () {
             value: new Complex(0, 2),
             valid: true,
             output: {
-                bson: bsonSerializer.serialize({ _: "2j" }),
                 json: "\"2j\"",
                 qs: "_=2j",
             },
@@ -102,7 +97,6 @@ describe("Custom", function () {
             value: new Complex(3, 4),
             valid: true,
             output: {
-                bson: bsonSerializer.serialize({ _: "3 + 4j" }),
                 json: "\"3 + 4j\"",
                 qs: "_=3%20%2B%204j",
             },

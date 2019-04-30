@@ -1,4 +1,3 @@
-import bson from "bson";
 import chai from "chai";
 import { CaseStyle } from "../../lib/case-style";
 import { JsonValueReader } from "../../lib/readers/json-value";
@@ -6,7 +5,6 @@ import { DocumentType } from "../../lib/types/document";
 import { IntegerType } from "../../lib/types/integer";
 import { TryUnionType } from "../../lib/types/try-union";
 import { runTests } from "../helpers/test";
-const bsonSerializer = new bson.BSON();
 describe("TryUnion", function () {
     describe("TryUnion<Shape>", function () {
         const $Rectangle = new DocumentType({
@@ -34,7 +32,6 @@ describe("TryUnion", function () {
                 },
                 valid: true,
                 output: {
-                    bson: bsonSerializer.serialize({ width: 10, height: 20 }),
                     json: "{\"width\":10,\"height\":20}",
                     qs: "width=10&height=20",
                 },
@@ -46,7 +43,6 @@ describe("TryUnion", function () {
                 },
                 valid: true,
                 output: {
-                    bson: bsonSerializer.serialize({ radius: 15 }),
                     json: "{\"radius\":15}",
                     qs: "radius=15",
                 },

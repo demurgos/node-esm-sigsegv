@@ -1,10 +1,7 @@
-import bson from "bson";
 import chai from "chai";
 import qs from "qs";
-import { BsonReader } from "../../lib/readers/bson";
 import { JsonReader } from "../../lib/readers/json";
 import { QsReader } from "../../lib/readers/qs";
-import { BsonWriter } from "../../lib/writers/bson";
 import { JsonWriter } from "../../lib/writers/json";
 import { QsWriter } from "../../lib/writers/qs";
 function getName(namedValue) {
@@ -31,34 +28,6 @@ export function testValidValue(type, item) {
     }
     it("Should return `true` for .test", function () {
         chai.assert.isTrue(type.test(item.value));
-    });
-}
-export function testBsonSerialization(type, typedValue) {
-    const writer = new BsonWriter(bson);
-    const reader = new BsonReader(bson);
-    const trustedReader = new BsonReader(bson, true);
-    let actualSerialized;
-    if (typedValue.output !== undefined && "bson" in typedValue.output) {
-        const output = typedValue.output["bson"];
-        it("`.writeBson(val)` should return the expected value", function () {
-            actualSerialized = type.write(writer, typedValue.value);
-            chai.assert.deepEqual(actualSerialized, output);
-        });
-    }
-    else {
-        it("`t.writeBson(val)` should not throw", function () {
-            actualSerialized = type.write(writer, typedValue.value);
-        });
-    }
-    it("`t.readTrustedBson(t.writeBson(val))` should be valid and equal to `val`", function () {
-        const imported = type.read(trustedReader, actualSerialized);
-        chai.assert.isTrue(type.test(imported));
-        chai.assert.isTrue(type.equals(imported, typedValue.value));
-    });
-    it("`t.readBson(t.writeBson(val))` should be valid and equal to `val`", function () {
-        const imported = type.read(reader, actualSerialized);
-        chai.assert.isTrue(type.test(imported));
-        chai.assert.isTrue(type.equals(imported, typedValue.value));
     });
 }
 export function testJsonSerialization(type, typedValue) {
@@ -122,7 +91,6 @@ export function testQsSerialization(type, typedValue) {
     });
 }
 export function testSerialization(type, typedValue) {
-    testBsonSerialization(type, typedValue);
     testJsonSerialization(type, typedValue);
     testQsSerialization(type, typedValue);
 }
