@@ -1,4 +1,3 @@
-import { Incident } from "incident";
 import { lazyProperties } from "../_helpers/lazy-properties";
 import { createInvalidArrayItemsError } from "../errors/invalid-array-items";
 import { createInvalidTypeError } from "../errors/invalid-type";
@@ -62,7 +61,7 @@ export const ArrayType = class {
     write(writer, value) {
         return writer.writeList(value.length, (index, itemWriter) => {
             if (this.itemType.write === undefined) {
-                throw new Incident("NotWritable", { type: this.itemType });
+                throw new Error("NotWritable");
             }
             return this.itemType.write(itemWriter, value[index]);
         });

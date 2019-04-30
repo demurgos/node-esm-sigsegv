@@ -1,7 +1,6 @@
 /**
  * @module kryo/readers/json-value
  */
-import { Incident } from "incident";
 import { createInvalidTypeError } from "../errors/invalid-type";
 export class JsonValueReader {
     constructor(trust) {
@@ -73,7 +72,7 @@ export class JsonValueReader {
         ]);
         const special = specialValues.get(raw);
         if (special === undefined && typeof raw !== "number") {
-            throw new Incident("InvalidInput", { raw, expected: "float64" });
+            throw new Error("InvalidInput");
         }
         return visitor.fromFloat64(special !== undefined ? special : raw);
     }
@@ -96,7 +95,7 @@ export class JsonValueReader {
                 // key = (/* keyType */ undefined as any).read(jsonReader, key);
             }
             catch (err) {
-                throw new Incident(err, "InvalidMapKey", { rawKey });
+                throw new Error(err);
             }
             input.set(key, raw[rawKey]);
         }

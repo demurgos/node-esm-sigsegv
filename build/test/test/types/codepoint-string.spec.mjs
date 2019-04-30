@@ -1,10 +1,9 @@
 import chai from "chai";
-import unorm from "unorm";
 import { CodepointStringType } from "../../lib/types/codepoint-string";
 import { runTests } from "../helpers/test";
 describe("CodepointStringType", function () {
     describe("basic support", function () {
-        const type = new CodepointStringType({ maxCodepoints: 500, unorm });
+        const type = new CodepointStringType({ maxCodepoints: 500 });
         const items = [
             // Valid items
             { name: "\"\"", value: "", valid: true },
@@ -31,7 +30,7 @@ describe("CodepointStringType", function () {
     });
     describe("Ensure valid codepoints with Javascript (UCS2) strings", function () {
         it("should accept the empty string, when requiring length exactly 0", function () {
-            chai.assert.isTrue(new CodepointStringType({ minCodepoints: 0, maxCodepoints: 0, unorm }).test(""));
+            chai.assert.isTrue(new CodepointStringType({ minCodepoints: 0, maxCodepoints: 0 }).test(""));
         });
         it("should accept the string \"a\" (ASCII codepoint), when requiring length exactly 1", function () {
             chai.assert.isTrue(new CodepointStringType({ minCodepoints: 1, maxCodepoints: 1, unorm }).test("a"));

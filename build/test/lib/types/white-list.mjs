@@ -1,4 +1,3 @@
-import { Incident } from "incident";
 import { lazyProperties } from "../_helpers/lazy-properties";
 import { createLazyOptionsError } from "../errors/lazy-options";
 import { testError } from "../test-error";
@@ -16,7 +15,7 @@ export class WhiteListType {
     }
     read(reader, raw) {
         if (this.itemType.read === undefined) {
-            throw new Incident("NotReadable", { type: this });
+            throw new Error("NotReadable");
         }
         const result = this.itemType.read(reader, raw);
         for (const allowed of this.values) {
@@ -24,14 +23,14 @@ export class WhiteListType {
                 return result;
             }
         }
-        throw Incident("UnkownVariant", "Unknown variant");
+        throw new Error("UnkownVariant");
     }
     write(writer, value) {
         if (this.itemType.write !== undefined) {
             return this.itemType.write(writer, value);
         }
         else {
-            throw new Incident("NotWritable", { type: this });
+            throw new Error("NotWritable");
         }
     }
     testError(val) {
@@ -44,7 +43,7 @@ export class WhiteListType {
                 return undefined;
             }
         }
-        return Incident("UnkownVariant", "Unknown variant");
+        return new Error("UnkownVariant");
     }
     test(value) {
         if (!this.itemType.test(value)) {

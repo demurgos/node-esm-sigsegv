@@ -1,4 +1,3 @@
-import { Incident } from "incident";
 import { lazyProperties } from "../_helpers/lazy-properties";
 import { createInvalidTypeError } from "../errors/invalid-type";
 import { createLazyOptionsError } from "../errors/lazy-options";
@@ -134,7 +133,7 @@ export class Ucs2StringType {
         }
         if (this.pattern instanceof RegExp) {
             if (this.pattern.unicode && !this.allowUnicodeRegExp) {
-                throw new Incident("UnicodeRegExp", "Disallowed unicode RegExp, use `allowUnicodeRegExp` or `CodepointStringType`");
+                throw new Error("UnicodeRegExp");
             }
             if (!this.pattern.test(val)) {
                 return createPatternNotMatchedError(this.pattern, val);

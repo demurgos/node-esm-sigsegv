@@ -1,4 +1,3 @@
-import { Incident } from "incident";
 import { lazyProperties } from "../_helpers/lazy-properties";
 import { createLazyOptionsError } from "../errors/lazy-options";
 import { testError } from "../test-error";
@@ -24,13 +23,13 @@ export const LiteralType = class {
     }
     read(reader, raw) {
         if (this.type.read === undefined) {
-            throw new Incident("NotReadable", { type: this });
+            throw new Error("NotReadable");
         }
         return reader.trustInput ? this.clone(this.value) : this.type.read(reader, raw);
     }
     write(writer, value) {
         if (this.type.write === undefined) {
-            throw new Incident("NotWritable", { type: this });
+            throw new Error("NotWritable");
         }
         return this.type.write(writer, value);
     }
@@ -40,7 +39,7 @@ export const LiteralType = class {
             return error;
         }
         if (!this.type.equals(val, this.value)) {
-            return Incident("InvalidLiteral", "Invalid literal value");
+            return Error("InvalidLiteral");
         }
         return undefined;
     }

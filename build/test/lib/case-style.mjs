@@ -3,7 +3,6 @@
  *
  * @module kryo/case-style
  */
-import { Incident } from "incident";
 export var CaseStyle;
 (function (CaseStyle) {
     CaseStyle[CaseStyle["CamelCase"] = 0] = "CamelCase";
@@ -42,7 +41,7 @@ export function split(caseStyle, identifier) {
         case CaseStyle.PascalCase:
             return identifier.split(/(?=[A-Z])/).map((part) => part.toLowerCase());
         default:
-            throw new Incident(`IncompleteSwitch: Received unexpected variant for caseStyle: ${caseStyle}`);
+            throw new new Error(`IncompleteSwitch: Received unexpected variant for caseStyle: ${caseStyle}`);
     }
 }
 export function join(caseStyle, parts) {
@@ -63,7 +62,7 @@ export function join(caseStyle, parts) {
                 return part.substr(0, 1).toUpperCase() + part.substring(1).toLowerCase();
             }).join("");
         default:
-            throw new Incident(`IncompleteSwitch: Received unexpected variant for caseStyle: ${caseStyle}`);
+            throw new Error(`IncompleteSwitch: Received unexpected variant for caseStyle: ${caseStyle}`);
     }
 }
 export function rename(identifier, from, to) {
@@ -80,7 +79,7 @@ export function renameMap(keys, to) {
         const renamed = to === undefined ? key : rename(key, to);
         result.set(renamed, key);
         if (outKeys.has(renamed)) {
-            throw new Incident("NonBijectiveKeyRename", "Some keys are the same after renaming");
+            throw new Error("NonBijectiveKeyRename");
         }
         outKeys.add(renamed);
     }

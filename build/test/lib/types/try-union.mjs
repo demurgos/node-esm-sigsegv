@@ -1,4 +1,3 @@
-import { Incident } from "incident";
 import { lazyProperties } from "../_helpers/lazy-properties";
 import { createLazyOptionsError } from "../errors/lazy-options";
 import { testError } from "../test-error";
@@ -28,10 +27,10 @@ export class TryUnionType {
     write(writer, value) {
         const variant = this.match(value);
         if (variant === undefined) {
-            throw new Incident("UnknownUnionVariant", "Unknown union variant");
+            throw new Error("UnknownUnionVariant");
         }
         if (variant.write === undefined) {
-            throw new Incident("NotWritable", { type: variant });
+            throw new Error("NotWritable");
         }
         return variant.write(writer, value);
     }
@@ -48,12 +47,12 @@ export class TryUnionType {
                 // TODO: Do not swallow all errors
             }
         }
-        throw new Incident("InputVariantNotFound", { union: this, raw });
+        throw new Error("InputVariantNotFound");
     }
     testError(value) {
         const variant = this.match(value);
         if (variant === undefined) {
-            return new Incident("UnknownUnionVariant", "Unknown union variant");
+            return new Error("UnknownUnionVariant");
         }
         return testError(variant, value);
     }

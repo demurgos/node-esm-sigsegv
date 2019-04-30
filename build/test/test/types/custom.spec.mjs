@@ -1,4 +1,3 @@
-import { Incident } from "incident";
 import { createInvalidTypeError } from "../../lib/errors/invalid-type";
 import { readVisitor } from "../../lib/readers/read-visitor";
 import { CustomType } from "../../lib/types/custom";
@@ -19,7 +18,7 @@ describe("Custom", function () {
             const realMatch = /^(\d+)(?:\s*\+\s*\d+j)?$/.exec(input);
             const imaginaryMatch = /^(?:\d+\s*\+\s*)?(\d+)j$/.exec(input);
             if (realMatch === null && imaginaryMatch === null) {
-                throw new Incident("InvalidInput", { input });
+                throw new Error("InvalidInput");
             }
             const real = realMatch !== null ? parseInt(realMatch[1], 10) : 0;
             const imaginary = imaginaryMatch !== null ? parseInt(imaginaryMatch[1], 10) : 0;

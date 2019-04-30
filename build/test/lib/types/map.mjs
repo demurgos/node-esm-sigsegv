@@ -1,4 +1,3 @@
-import { Incident } from "incident";
 import { lazyProperties } from "../_helpers/lazy-properties";
 import { createInvalidTypeError } from "../errors/invalid-type";
 import { createLazyOptionsError } from "../errors/lazy-options";
@@ -73,12 +72,12 @@ export class MapType {
         const entries = [...value];
         return writer.writeMap(entries.length, (index, keyWriter) => {
             if (this.keyType.write === undefined) {
-                throw new Incident("NotWritable", { type: this.keyType });
+                throw new Error("NotWritable");
             }
             return this.keyType.write(keyWriter, entries[index][0]);
         }, (index, valueWriter) => {
             if (this.valueType.write === undefined) {
-                throw new Incident("NotWritable", { type: this.valueType });
+                throw new Error("NotWritable");
             }
             return this.valueType.write(valueWriter, entries[index][1]);
         });
@@ -90,11 +89,11 @@ export class MapType {
         for (const [key, value] of val) {
             const keyError = testError(this.keyType, key);
             if (keyError !== undefined) {
-                return new Incident("InvalidMapKey", { key, value }, "Invalid map entry: invalid key");
+                return new Error("InvalidMapKey");
             }
             const valueError = testError(this.valueType, value);
             if (valueError !== undefined) {
-                return new Incident("InvalidMapValue", { key, value }, "Invalid map entry: invalid value");
+                return new Error("InvalidMapValue");
             }
         }
         return undefined;

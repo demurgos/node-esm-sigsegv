@@ -2,11 +2,6 @@
 # yarn lockfile v1
 
 
-"@types/object-inspect@^1.4.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@types/object-inspect/-/object-inspect-1.4.0.tgz#649d85af82d9d47f165add37586fd1665bdd5c1a"
-  integrity sha512-DfakDc17w1le6CVOt23jAGVbc936J3tOBZgqjJGzvPKYd7E93g/2pyVanhU0Yx7qGRAYgeh6YfVdyBMsd39Vag==
-
 ansi-colors@3.2.3:
   version "3.2.3"
   resolved "https://registry.yarnpkg.com/ansi-colors/-/ansi-colors-3.2.3.tgz#57d35b8686e851e2cc04c403f1c00203976a1813"
@@ -309,14 +304,6 @@ he@1.2.0:
   resolved "https://registry.yarnpkg.com/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
   integrity sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==
 
-incident@^3.1.1:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/incident/-/incident-3.2.0.tgz#448f14ab46d52512240efc7466a5b0a0f3bd89ab"
-  integrity sha512-Hok2kKEfZorHNeLePZxe03JCI0KxaN4XwrbwHWMSgZgyuNP/Pu/vqX1bwtm7FgwdqgXvEwAmDS5VCAkXnH3DXg==
-  dependencies:
-    "@types/object-inspect" "^1.4.0"
-    object-inspect "^1.6.0"
-
 inflight@^1.0.4:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/inflight/-/inflight-1.0.6.tgz#49bd6331d7d02d0c09bc910a1075ba8165b56df9"
@@ -519,11 +506,6 @@ number-is-nan@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
   integrity sha1-CXtgK1NCKlIsGvuHkDGDNpQaAR0=
-
-object-inspect@^1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/object-inspect/-/object-inspect-1.6.0.tgz#c70b6cbf72f274aab4c34c0c82f5167bf82cf15b"
-  integrity sha512-GJzfBZ6DgDAmnuaM3104jR4s1Myxr3Y3zfIyN4z3UdqN69oSRacNK8UhnobDdC+7J2AHCjGwxQubNJfE70SXXQ==
 
 object-keys@^1.0.11, object-keys@^1.0.12:
   version "1.1.1"

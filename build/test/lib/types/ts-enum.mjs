@@ -1,4 +1,3 @@
-import { Incident } from "incident";
 import { lazyProperties } from "../_helpers/lazy-properties";
 import { rename } from "../case-style";
 import { createLazyOptionsError } from "../errors/lazy-options";
@@ -84,7 +83,7 @@ export class TsEnumType {
         return reader.readString(raw, readVisitor({
             fromString: (input) => {
                 if (!reader.trustInput && !this.outToJs.has(input)) {
-                    throw Incident("Unknown enum variant name", input);
+                    throw new Error("Unknown enum variant name");
                 }
                 return this.outToJs.get(input);
             },
@@ -95,7 +94,7 @@ export class TsEnumType {
     }
     testError(value) {
         if (!this.jsToOut.has(value)) {
-            return Incident("UnknownVariantError", { value }, "Unknown enum variant value");
+            return new Error("UnknownVariantError");
         }
         return undefined;
     }

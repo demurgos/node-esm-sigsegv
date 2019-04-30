@@ -1,4 +1,3 @@
-import { Incident } from "incident";
 import { lazyProperties } from "../_helpers/lazy-properties";
 import { createInvalidIntegerError } from "../errors/invalid-integer";
 import { createInvalidTypeError } from "../errors/invalid-type";
@@ -60,7 +59,7 @@ export class IntegerType {
             return createInvalidIntegerError(val);
         }
         if (val < this.min || val > this.max) {
-            return new Incident("Range", { value: val, min: this.min, max: this.max }, "Integer not in range");
+            return new new Error("Range");
         }
         return undefined;
     }

@@ -1,4 +1,3 @@
-import { Incident } from "incident";
 /**
  * Checked version of `punycode.ucs2.decode`, throws an error if
  * there is an unmatched surrogate half.
@@ -22,7 +21,7 @@ export function checkedUcs2Decode(string, check = true) {
                 output.push(((value & 0x3FF) << 10) + (extra & 0x3FF) + 0x10000);
             }
             else if (check) {
-                throw new Incident("InvalidUcs2String", `Unmatched high surrogate half at index ${counter - 2}`);
+                throw new Error("InvalidUcs2String");
             }
             else {
                 // It's an unmatched surrogate; only append this code unit, in case the
@@ -32,11 +31,11 @@ export function checkedUcs2Decode(string, check = true) {
             }
         }
         else if (value >= 0xD800 && value <= 0xDBFF && counter === length) {
-            throw new Incident("InvalidUcs2String", `Unmatched high surrogate half at index ${counter - 1}`);
+            throw new Error("InvalidUcs2String");
         }
         else if ((value & 0xFC00) === 0xDC00) {
             // Low surrogate that wasn't matched by a preceding high surrogate.
-            throw new Incident("InvalidUcs2String", `Unmatched low surrogate half at index ${counter - 1}`);
+            throw new Error("InvalidUcs2String");
         }
         else {
             output.push(value);

@@ -1,4 +1,3 @@
-import { Incident } from "incident";
 import { lazyProperties } from "../_helpers/lazy-properties";
 import { createInvalidTypeError } from "../errors/invalid-type";
 import { createLazyOptionsError } from "../errors/lazy-options";
@@ -36,10 +35,10 @@ export class TaggedUnionType {
     write(writer, value) {
         const variant = this.match(value);
         if (variant === undefined) {
-            throw new Incident("VariantNotFound", { union: this, value });
+            throw new Error("VariantNotFound");
         }
         if (variant.write === undefined) {
-            throw new Incident("NotWritable", { type: variant });
+            throw new Error("NotWritable");
         }
         return variant.write(writer, value);
     }
@@ -58,11 +57,11 @@ export class TaggedUnionType {
                     const tagValue = this.getTagType().read(valueReader, rawValue);
                     const variant = this.getValueToVariantMap().get(tagValue); // tagToVariant
                     if (variant === undefined) {
-                        throw new Incident("VariantNotFound", { union: this, tagValue });
+                        throw new Error("VariantNotFound");
                     }
                     return [variant, variant.read(reader, raw)];
                 }
-                throw new Incident("MissingOutTag");
+                throw new Error("MissingOutTag");
             },
         }));
     }
@@ -72,7 +71,7 @@ export class TaggedUnionType {
         }
         const variant = this.match(value);
         if (variant === undefined) {
-            return new Incident("UnknownUnionVariant", "Unknown union variant");
+            return new Error("UnknownUnionVariant");
         }
         return testError(variant, value);
     }
@@ -127,11 +126,11 @@ export class TaggedUnionType {
                     outTag = cur;
                 }
                 else if (cur !== outTag) {
-                    throw new Incident("MixedOutTag", { tag, out: [cur, outTag] });
+                    throw new Error("MixedOutTag");
                 }
             }
             if (outTag === undefined) {
-                throw new Incident("AssertionFailed", "Expected outTag to be defined");
+                throw new Error("AssertionFailed");
             }
             this._outTag = outTag;
         }
@@ -148,11 +147,11 @@ export class TaggedUnionType {
                     tagType = cur;
                 }
                 else if (cur !== tagType) {
-                    throw new Incident("MixedTagType", { tag, type: [cur, tagType] });
+                    throw new Error("MixedTagType");
                 }
             }
             if (tagType === undefined) {
-                throw new Incident("AssertionFailed", "Expected tagType to be defined");
+                throw new Error("AssertionFailed");
             }
             this._tagType = tagType;
         }
@@ -165,12 +164,12 @@ export class TaggedUnionType {
             for (const variant of this.variants) {
                 const lit = variant.properties[tag].type;
                 if (valueToVariantMap.has(lit.value)) {
-                    throw new Incident("DuplicateTagValue", { value: lit.value });
+                    throw new Error("DuplicateTagValue");
                 }
                 valueToVariantMap.set(lit.value, variant);
             }
             if (valueToVariantMap === undefined) {
-                throw new Incident("AssertionFailed", "Expected valueToVariantMap to be defined");
+                throw new Error("AssertionFailed");
             }
             this._valueToVariantMap = valueToVariantMap;
         }

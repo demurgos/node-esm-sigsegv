@@ -1,4 +1,3 @@
-import { Incident } from "incident";
 import { lazyProperties } from "../_helpers/lazy-properties";
 import { rename } from "../case-style";
 import { createInvalidDocumentError } from "../errors/invalid-document";
@@ -111,7 +110,7 @@ export const DocumentType = class {
             const jsKey = this.outKeys.get(outKey);
             const descriptor = this.properties[jsKey];
             if (descriptor.type.write === undefined) {
-                throw new Incident("NotWritable", { type: descriptor.type });
+                throw new Error("NotWritable");
             }
             return descriptor.type.write(fieldWriter, value[jsKey]);
         });
@@ -281,7 +280,7 @@ export function renameKeys(obj, renameAll) {
         const renamed = renameAll === undefined ? key : rename(key, renameAll);
         result.set(key, renamed);
         if (outKeys.has(renamed)) {
-            throw new Incident("NonBijectiveKeyRename", "Some keys are the same after renaming");
+            throw new Error("NonBijectiveKeyRename");
         }
         outKeys.add(renamed);
     }

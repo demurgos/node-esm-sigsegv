@@ -1,4 +1,3 @@
-import { Incident } from "incident";
 import { checkedUcs2Decode } from "../_helpers/checked-ucs2-decode";
 import { lazyProperties } from "../_helpers/lazy-properties";
 import { createInvalidTypeError } from "../errors/invalid-type";
@@ -95,13 +94,13 @@ export class CodepointStringType {
                     throw createMissingDependencyError("unorm", "Required to normalize unicode strings to NFC.");
                 }
                 if (val !== this.unorm.nfc(val)) {
-                    return Incident("UnicodeNormalization", "Not NFC-Normalized");
+                    return new Error("UnicodeNormalization");
                 }
                 break;
             case Normalization.None:
                 break;
             default:
-                throw new Incident(`IncompleteSwitch: Received unexpected variant for this.normalization: ${this.normalization}`);
+                throw new Error(`IncompleteSwitch: Received unexpected variant for this.normalization: ${this.normalization}`);
         }
         if (this.lowerCase && val !== val.toLowerCase()) {
             return createLowerCaseError(val);
@@ -125,7 +124,7 @@ export class CodepointStringType {
         }
         if (this.pattern instanceof RegExp) {
             if (!this.pattern.unicode && this.enforceUnicodeRegExp) {
-                throw new Incident("NonUnicodeRegExp", "Enforced unicode RegExp, use `enforceUnicodeRegExp = false` or `Ucs2StringType`");
+                throw new Error("NonUnicodeRegExp");
             }
             if (!this.pattern.test(val)) {
                 return createPatternNotMatchedError(this.pattern, val);
