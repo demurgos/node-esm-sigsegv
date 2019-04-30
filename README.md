@@ -53,3 +53,5 @@ If I use 2 or 3 dynamic imports, I get a segfault about 25% of the time.
 That's why I think that the behavior is non-deterministic.
 
 If I use 4 or more dynamic imports, it always crashes.
+
+[Issue: nodejs/node#27492](https://github.com/nodejs/node/issues/27492)
