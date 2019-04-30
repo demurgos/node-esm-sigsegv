@@ -49,7 +49,7 @@ If I comment out all the dynamic imports but one, the command seems to never cra
 })();
 ```
 
-If I use 2 or 3 dynamic imports, I get segfault about 25% of the time.
+If I use 2 or 3 dynamic imports, I get a segfault about 25% of the time.
 That's why I think that the behavior is non-deterministic.
 
 If I use 4 or more dynamic imports, it always crashes.
