@@ -1,9 +1,0 @@
-"use strict";
-/**
- * @module kryo/builtins/sint32
- */
-Object.defineProperty(exports, "__esModule", { value: true });
-const integer_1 = require("../types/integer");
-exports.$Sint32 = new integer_1.IntegerType({ min: -2147483648, max: 2147483647 });
-
-//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9saWIvYnVpbHRpbnMvc2ludDMyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFBQTs7R0FFRzs7QUFFSCw4Q0FBK0M7QUFFbEMsUUFBQSxPQUFPLEdBQWdCLElBQUkscUJBQVcsQ0FBQyxFQUFDLEdBQUcsRUFBRSxDQUFDLFVBQVUsRUFBRSxHQUFHLEVBQUUsVUFBVSxFQUFDLENBQUMsQ0FBQyIsImZpbGUiOiJsaWIvYnVpbHRpbnMvc2ludDMyLmpzIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBAbW9kdWxlIGtyeW8vYnVpbHRpbnMvc2ludDMyXG4gKi9cblxuaW1wb3J0IHsgSW50ZWdlclR5cGUgfSBmcm9tIFwiLi4vdHlwZXMvaW50ZWdlclwiO1xuXG5leHBvcnQgY29uc3QgJFNpbnQzMjogSW50ZWdlclR5cGUgPSBuZXcgSW50ZWdlclR5cGUoe21pbjogLTIxNDc0ODM2NDgsIG1heDogMjE0NzQ4MzY0N30pO1xuIl0sInNvdXJjZVJvb3QiOiIuLi8uLiJ9

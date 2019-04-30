@@ -1,9 +1,0 @@
-"use strict";
-/**
- * @module kryo/builtins/uint8
- */
-Object.defineProperty(exports, "__esModule", { value: true });
-const integer_1 = require("../types/integer");
-exports.$Uint8 = new integer_1.IntegerType({ min: 0, max: 255 });
-
-//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9saWIvYnVpbHRpbnMvdWludDgudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUFBOztHQUVHOztBQUVILDhDQUErQztBQUVsQyxRQUFBLE1BQU0sR0FBZ0IsSUFBSSxxQkFBVyxDQUFDLEVBQUMsR0FBRyxFQUFFLENBQUMsRUFBRSxHQUFHLEVBQUUsR0FBRyxFQUFDLENBQUMsQ0FBQyIsImZpbGUiOiJsaWIvYnVpbHRpbnMvdWludDguanMiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEBtb2R1bGUga3J5by9idWlsdGlucy91aW50OFxuICovXG5cbmltcG9ydCB7IEludGVnZXJUeXBlIH0gZnJvbSBcIi4uL3R5cGVzL2ludGVnZXJcIjtcblxuZXhwb3J0IGNvbnN0ICRVaW50ODogSW50ZWdlclR5cGUgPSBuZXcgSW50ZWdlclR5cGUoe21pbjogMCwgbWF4OiAyNTV9KTtcbiJdLCJzb3VyY2VSb290IjoiLi4vLi4ifQ==

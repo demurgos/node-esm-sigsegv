@@ -1,9 +1,0 @@
-"use strict";
-/**
- * @module kryo/builtins/boolean
- */
-Object.defineProperty(exports, "__esModule", { value: true });
-const boolean_1 = require("../types/boolean");
-exports.$Boolean = new boolean_1.BooleanType();
-
-//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9saWIvYnVpbHRpbnMvYm9vbGVhbi50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQUE7O0dBRUc7O0FBRUgsOENBQStDO0FBRWxDLFFBQUEsUUFBUSxHQUFnQixJQUFJLHFCQUFXLEVBQUUsQ0FBQyIsImZpbGUiOiJsaWIvYnVpbHRpbnMvYm9vbGVhbi5qcyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogQG1vZHVsZSBrcnlvL2J1aWx0aW5zL2Jvb2xlYW5cbiAqL1xuXG5pbXBvcnQgeyBCb29sZWFuVHlwZSB9IGZyb20gXCIuLi90eXBlcy9ib29sZWFuXCI7XG5cbmV4cG9ydCBjb25zdCAkQm9vbGVhbjogQm9vbGVhblR5cGUgPSBuZXcgQm9vbGVhblR5cGUoKTtcbiJdLCJzb3VyY2VSb290IjoiLi4vLi4ifQ==
