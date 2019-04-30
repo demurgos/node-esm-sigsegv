@@ -1,9 +1,6 @@
 import chai from "chai";
-import qs from "qs";
 import { JsonReader } from "../../lib/readers/json";
-import { QsReader } from "../../lib/readers/qs";
 import { JsonWriter } from "../../lib/writers/json";
-import { QsWriter } from "../../lib/writers/qs";
 function getName(namedValue) {
     return "name" in namedValue ? namedValue.name : JSON.stringify(namedValue.value);
 }
@@ -59,40 +56,8 @@ export function testJsonSerialization(type, typedValue) {
         chai.assert.isTrue(type.equals(imported, typedValue.value));
     });
 }
-export function testQsSerialization(type, typedValue) {
-    const writer = new QsWriter(qs);
-    const reader = new QsReader(qs);
-    const trustedReader = new QsReader(qs, true);
-    let actualSerialized;
-    if (typedValue.output !== undefined && "qs" in typedValue.output) {
-        if (typedValue.output["qs"] === "ignore") {
-            return;
-        }
-        const expectedSerialized = typedValue.output["qs"];
-        it(`\`.writeQs(val)\` should return the value \`${expectedSerialized}\``, function () {
-            actualSerialized = type.write(writer, typedValue.value);
-            chai.assert.strictEqual(actualSerialized, expectedSerialized);
-        });
-    }
-    else {
-        it("`t.writeQs(val)` should not throw", function () {
-            actualSerialized = type.write(writer, typedValue.value);
-        });
-    }
-    it("`t.readTrustedQs(t.writeQs(val))` should be valid and equal to `val`", function () {
-        const imported = type.read(trustedReader, actualSerialized);
-        chai.assert.isTrue(type.test(imported));
-        chai.assert.isTrue(type.equals(imported, typedValue.value));
-    });
-    it("`t.readQs(t.writeQs(val))` should be valid and equal to `val`", function () {
-        const imported = type.read(reader, actualSerialized);
-        chai.assert.isTrue(type.test(imported));
-        chai.assert.isTrue(type.equals(imported, typedValue.value));
-    });
-}
 export function testSerialization(type, typedValue) {
     testJsonSerialization(type, typedValue);
-    testQsSerialization(type, typedValue);
 }
 export function testValueSync(type, item) {
     if (item.valid) {

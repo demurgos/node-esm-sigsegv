@@ -2,7 +2,7 @@
  * @module kryo/writers/structured
  */
 /**
- * Base class for `json`, `qs` writers.
+ * Base class for `json` writers.
  */
 export class StructuredWriter {
     writeAny(value) {
