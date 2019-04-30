@@ -1,0 +1,9 @@
+"use strict";
+/**
+ * @module kryo/builtins/uint32
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+const integer_1 = require("../types/integer");
+exports.$Uint32 = new integer_1.IntegerType({ min: 0, max: 4294967295 });
+
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9saWIvYnVpbHRpbnMvdWludDMyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFBQTs7R0FFRzs7QUFFSCw4Q0FBK0M7QUFFbEMsUUFBQSxPQUFPLEdBQWdCLElBQUkscUJBQVcsQ0FBQyxFQUFDLEdBQUcsRUFBRSxDQUFDLEVBQUUsR0FBRyxFQUFFLFVBQVUsRUFBQyxDQUFDLENBQUMiLCJmaWxlIjoibGliL2J1aWx0aW5zL3VpbnQzMi5qcyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogQG1vZHVsZSBrcnlvL2J1aWx0aW5zL3VpbnQzMlxuICovXG5cbmltcG9ydCB7IEludGVnZXJUeXBlIH0gZnJvbSBcIi4uL3R5cGVzL2ludGVnZXJcIjtcblxuZXhwb3J0IGNvbnN0ICRVaW50MzI6IEludGVnZXJUeXBlID0gbmV3IEludGVnZXJUeXBlKHttaW46IDAsIG1heDogNDI5NDk2NzI5NX0pO1xuIl0sInNvdXJjZVJvb3QiOiIuLi8uLiJ9

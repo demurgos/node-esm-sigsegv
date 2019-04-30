@@ -1,0 +1,9 @@
+"use strict";
+/**
+ * @module kryo/builtins/bytes
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+const bytes_1 = require("../types/bytes");
+exports.$Bytes = new bytes_1.BytesType({ maxLength: Infinity });
+
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9saWIvYnVpbHRpbnMvYnl0ZXMudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUFBOztHQUVHOztBQUVILDBDQUEyQztBQUU5QixRQUFBLE1BQU0sR0FBYyxJQUFJLGlCQUFTLENBQUMsRUFBQyxTQUFTLEVBQUUsUUFBUSxFQUFDLENBQUMsQ0FBQyIsImZpbGUiOiJsaWIvYnVpbHRpbnMvYnl0ZXMuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEBtb2R1bGUga3J5by9idWlsdGlucy9ieXRlc1xuICovXG5cbmltcG9ydCB7IEJ5dGVzVHlwZSB9IGZyb20gXCIuLi90eXBlcy9ieXRlc1wiO1xuXG5leHBvcnQgY29uc3QgJEJ5dGVzOiBCeXRlc1R5cGUgPSBuZXcgQnl0ZXNUeXBlKHttYXhMZW5ndGg6IEluZmluaXR5fSk7XG4iXSwic291cmNlUm9vdCI6Ii4uLy4uIn0=

@@ -1,0 +1,27 @@
+(async () => {
+  // await import("./test/builtins/sint8.spec.mjs");
+  // await import("./test/builtins/uint8.spec.mjs");
+  // await import("./test/builtins/uuid-hex.spec.mjs");
+  // await import("./test/case-style.spec.mjs");
+  // await import("./test/circular-types/fs-tree/index.spec.mjs");
+  // await import("./test/helpers/diff.spec.mjs");
+  // await import("./test/types/any.spec.mjs");
+  // await import("./test/types/array.spec.mjs");
+  // await import("./test/types/boolean.spec.mjs");
+  // await import("./test/types/bytes.spec.mjs");
+  // await import("./test/types/codepoint-string.spec.mjs");
+  // await import("./test/types/custom.spec.mjs");
+  // await import("./test/types/date.spec.mjs");
+  // await import("./test/types/document.spec.mjs");
+  // await import("./test/types/float64.spec.mjs");
+  // await import("./test/types/integer.spec.mjs");
+  // await import("./test/types/literal.spec.mjs");
+  // await import("./test/types/map.spec.mjs");
+  // await import("./test/types/tagged-union.spec.mjs");
+  // await import("./test/types/try-union.spec.mjs");
+  await import("./test/types/ts-enum.spec.mjs");
+  await import("./test/types/ucs2-string.spec.mjs");
+  await import("./test/types/union.spec.mjs");
+  await import("./test/types/white-list.spec.mjs");
+  run();
+})();

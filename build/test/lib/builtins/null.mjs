@@ -1,0 +1,7 @@
+/**
+ * @module kryo/builtins/null
+ */
+import { NullType } from "../types/null";
+export const $Null = new NullType();
+
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9saWIvYnVpbHRpbnMvbnVsbC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7R0FFRztBQUVILE9BQU8sRUFBRSxRQUFRLEVBQUUsTUFBTSxlQUFlLENBQUM7QUFFekMsTUFBTSxDQUFDLE1BQU0sS0FBSyxHQUFhLElBQUksUUFBUSxFQUFFLENBQUMiLCJmaWxlIjoibGliL2J1aWx0aW5zL251bGwuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEBtb2R1bGUga3J5by9idWlsdGlucy9udWxsXG4gKi9cblxuaW1wb3J0IHsgTnVsbFR5cGUgfSBmcm9tIFwiLi4vdHlwZXMvbnVsbFwiO1xuXG5leHBvcnQgY29uc3QgJE51bGw6IE51bGxUeXBlID0gbmV3IE51bGxUeXBlKCk7XG4iXSwic291cmNlUm9vdCI6Ii4uLy4uIn0=

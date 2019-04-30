@@ -1,0 +1,9 @@
+"use strict";
+/**
+ * @module kryo/builtins/sint8
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+const integer_1 = require("../types/integer");
+exports.$Sint8 = new integer_1.IntegerType({ min: -128, max: 127 });
+
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9saWIvYnVpbHRpbnMvc2ludDgudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUFBOztHQUVHOztBQUVILDhDQUErQztBQUVsQyxRQUFBLE1BQU0sR0FBZ0IsSUFBSSxxQkFBVyxDQUFDLEVBQUMsR0FBRyxFQUFFLENBQUMsR0FBRyxFQUFFLEdBQUcsRUFBRSxHQUFHLEVBQUMsQ0FBQyxDQUFDIiwiZmlsZSI6ImxpYi9idWlsdGlucy9zaW50OC5qcyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogQG1vZHVsZSBrcnlvL2J1aWx0aW5zL3NpbnQ4XG4gKi9cblxuaW1wb3J0IHsgSW50ZWdlclR5cGUgfSBmcm9tIFwiLi4vdHlwZXMvaW50ZWdlclwiO1xuXG5leHBvcnQgY29uc3QgJFNpbnQ4OiBJbnRlZ2VyVHlwZSA9IG5ldyBJbnRlZ2VyVHlwZSh7bWluOiAtMTI4LCBtYXg6IDEyN30pO1xuIl0sInNvdXJjZVJvb3QiOiIuLi8uLiJ9

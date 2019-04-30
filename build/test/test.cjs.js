@@ -1,0 +1,26 @@
+(() => {
+  require("./test/builtins/sint8.spec.js");
+  require("./test/builtins/uint8.spec.js");
+  require("./test/builtins/uuid-hex.spec.js");
+  require("./test/case-style.spec.js");
+  require("./test/circular-types/fs-tree/index.spec.js");
+  require("./test/helpers/diff.spec.js");
+  require("./test/types/any.spec.js");
+  require("./test/types/array.spec.js");
+  require("./test/types/boolean.spec.js");
+  require("./test/types/bytes.spec.js");
+  require("./test/types/codepoint-string.spec.js");
+  require("./test/types/custom.spec.js");
+  require("./test/types/date.spec.js");
+  require("./test/types/document.spec.js");
+  require("./test/types/float64.spec.js");
+  require("./test/types/integer.spec.js");
+  require("./test/types/literal.spec.js");
+  require("./test/types/map.spec.js");
+  require("./test/types/tagged-union.spec.js");
+  require("./test/types/try-union.spec.js");
+  require("./test/types/ts-enum.spec.js");
+  require("./test/types/ucs2-string.spec.js");
+  require("./test/types/union.spec.js");
+  require("./test/types/white-list.spec.js");
+})();
